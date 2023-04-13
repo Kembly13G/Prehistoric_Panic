@@ -20,17 +20,27 @@ public class PlatformController : MonoBehaviour
 
     void MovePlatform()
     {
+        if (points.Length == 0)
+        {
+            return;
+        }
+
+        if (pointsIndex < 0 || pointsIndex >= points.Length)
+        {
+            pointsIndex = 0;
+        }
+
         if (Vector3.Distance(transform.position, points[pointsIndex].transform.position) < 0.1F)
         {
             pointsIndex++;
 
-            if(pointsIndex >= points.Length)
+            if (pointsIndex >= points.Length)
             {
                 pointsIndex = 0;
             }
         }
 
-        transform.position = Vector3.MoveTowards(transform.position, 
+        transform.position = Vector3.MoveTowards(transform.position,
             points[pointsIndex].transform.position, platformSpeed * Time.deltaTime);
 
     }
