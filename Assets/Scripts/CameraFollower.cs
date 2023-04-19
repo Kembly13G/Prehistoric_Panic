@@ -8,8 +8,7 @@ public class CameraFollower : MonoBehaviour
     Transform followTarget;
     [SerializeField]
     Vector3 offset;
-    [SerializeField]
-    float smoothTime = 0.5F;
+
     void Start()
     {
         if (offset == Vector3.zero)
@@ -18,7 +17,6 @@ public class CameraFollower : MonoBehaviour
         }
         /* Esconder el cursor del Mouse */
         Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
     }
     void LateUpdate()
     {
