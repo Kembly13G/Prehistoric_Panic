@@ -75,6 +75,9 @@ namespace StarterAssets
         [Tooltip("For locking the camera position on all axis")]
         public bool LockCameraPosition = false;
 
+        [SerializeField]
+        float TotalCollectibles;
+
         // cinemachine
         private float _cinemachineTargetYaw;
         private float _cinemachineTargetPitch;
@@ -388,5 +391,19 @@ namespace StarterAssets
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
             }
         }
+        public void ObtainedCollectibles(float value)
+        {
+            TotalCollectibles += value;
+            if (TotalCollectibles >= 10)
+            {
+                //Agregar el beneficio de obtener 10 gemas
+            }
+        }
+
+        public int GetObtainedCollectibles()
+        {
+            return Mathf.FloorToInt(TotalCollectibles);
+        }
+
     }
 }
