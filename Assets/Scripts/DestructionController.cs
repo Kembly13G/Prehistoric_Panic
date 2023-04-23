@@ -7,10 +7,10 @@ public class DestructionController : MonoBehaviour
     [SerializeField]
     float lifeTime = 2F;
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
-        Debug.Log(tag);
-        if (collision.gameObject.CompareTag("Player"))
+
+        if (other.CompareTag("Player"))
         {
             Destroy(gameObject, lifeTime);
         }
