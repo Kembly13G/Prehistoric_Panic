@@ -3,8 +3,6 @@ using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine;
-using StarterAssets;
-
 
 public class CollectiblesController : MonoBehaviour
 {
@@ -16,7 +14,7 @@ public class CollectiblesController : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-            ThirdPersonController controller = other.GetComponent<ThirdPersonController>();
+            GemsController controller = other.GetComponent<GemsController>();
             controller.ObtainedCollectibles(collectible);
             Destroy(gameObject);
         }

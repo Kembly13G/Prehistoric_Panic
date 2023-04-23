@@ -7,9 +7,9 @@ public class CageController : MonoBehaviour
     [SerializeField]
     float lifeTime = 1.5F;
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             Destroy(gameObject, lifeTime);
         }
