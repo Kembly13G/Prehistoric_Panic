@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
+using UnityEngine.SceneManagement;
+using System.Threading;
 public class RobotController : MonoBehaviour
 {
     enum PatrolStates
@@ -73,6 +74,7 @@ public class RobotController : MonoBehaviour
             case PatrolStates.Chase: HandleChase(); break;
             case PatrolStates.Patrol: HandlePatrol(); break;
         }
+
     }
 
     private void HandlePatrol()
@@ -135,12 +137,12 @@ public class RobotController : MonoBehaviour
         agent.SetDestination(target.position);
         animator.SetBool("isWalking", false);
         transform.LookAt(target);
-
         if (!isAlreadyAttacking)
         {
             isAlreadyAttacking = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
             animator.SetBool("isAttacking", true);
+            SceneManager.LoadScene(1);
         }
     }
 
