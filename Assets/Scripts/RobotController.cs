@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class RobotController : MonoBehaviour
 {
@@ -141,6 +142,7 @@ public class RobotController : MonoBehaviour
             isAlreadyAttacking = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
             animator.SetBool("isAttacking", true);
+            SceneManager.LoadScene(1);
         }
     }
 
