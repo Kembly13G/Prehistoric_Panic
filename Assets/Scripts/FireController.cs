@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class fire : MonoBehaviour
+public class FireController : MonoBehaviour
 {
     private NavMeshAgent navAgent;
     public Transform[] waypoints;

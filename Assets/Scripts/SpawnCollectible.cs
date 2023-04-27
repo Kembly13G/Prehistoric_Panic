@@ -9,48 +9,19 @@ public class SpawnCollectible : MonoBehaviour
 {
 
     public GameObject collectiblePrefab;
-   public float spawnTime = 5f;
-   public float despawnTime = 5f;
- 
-   private GameObject spawnedCollectible;
+    public float spawnTime = 5f;
+    public float despawnTime = 5f;
 
+    GameObject spawnedCollectible;
 
-   public int collectibleCountToWin = 3;
-
- [SerializeField]
-    float collectible = 1;
-
-    public void OnTriggerEnter(Collider other)
+    IEnumerator DestroyCollectible()
     {
-
-        if (other.CompareTag("Player"))
+        yield return new WaitForSeconds(despawnTime);
+        if (spawnedCollectible != null)
         {
-            GemsController controller = other.GetComponent<GemsController>();
-            controller.ObtainedCollectibles(collectible);
-            Destroy(gameObject);
+            Destroy(spawnedCollectible);
+            spawnedCollectible = null;
         }
     }
-
-
-  void Update () {
-    
-    
-   }
-
-
-
-
-
- IEnumerator DestroyCollectible() {
-      yield return new WaitForSeconds(despawnTime);
-      if (spawnedCollectible != null) {
-         Destroy(spawnedCollectible);
-         spawnedCollectible = null;
-      }
-   }
-
-   
-
- 
 
 }

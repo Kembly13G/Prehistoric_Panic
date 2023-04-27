@@ -5,18 +5,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Starcontroller : MonoBehaviour
+public class StarController : MonoBehaviour
 {
-   [SerializeField]
-    float TotalCollectible;
-    public int collectibleCountToWin = 3;
+    [SerializeField]
+    float collectible = 1;
 
-    public void ObtainedCollectibles(float collectible)
+    public void OnTriggerEnter(Collider other)
     {
-        TotalCollectible += collectible;
-        if(collectibleCountToWin >= 3){
-            SceneManager.LoadScene("Win");
-        }
 
+        if (other.CompareTag("Player"))
+        {
+            TotalStarController controller = other.GetComponent<TotalStarController>();
+            controller.ObtainedCollectibles(collectible);
+            Destroy(gameObject);
+        }
     }
 }
