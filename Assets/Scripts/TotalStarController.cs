@@ -12,7 +12,7 @@ public class TotalStarController : MonoBehaviour
     {
         TotalCollectible += collectible;
 
-        if (TotalCollectible >= 3)
+        if (TotalCollectible >= 5)
         {
             SceneManager.LoadScene(2);
         }

@@ -7,21 +7,24 @@ using UnityEngine.SceneManagement;
 
 public class SpawnCollectible : MonoBehaviour
 {
+    [SerializeField]
+    float visibleTime = 5f;
 
-    /*public GameObject collectiblePrefab;
-    public float spawnTime = 5f;
-    public float despawnTime = 5f;
+    [SerializeField]
+    float currentTime = 0f;
 
-    GameObject spawnedCollectible;
-
-    IEnumerator DestroyCollectible()
+    void Update()
     {
-        yield return new WaitForSeconds(despawnTime);
-        if (spawnedCollectible != null)
+        transform.Rotate(new Vector3(0f, 90f, 0f) * Time.deltaTime);
+
+        currentTime += Time.deltaTime;
+
+        if(currentTime >= visibleTime)
         {
-            Destroy(spawnedCollectible);
-            spawnedCollectible = null;
+            currentTime = 0;
+
+            gameObject.GetComponent<Renderer>().enabled = !gameObject.GetComponent<Renderer>().enabled;
         }
-    }*/
+    }
 
 }
