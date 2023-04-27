@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class RobotController : MonoBehaviour
 {
+
+    ManipularVidaController VidaPlayer;
     enum PatrolStates
     {
         Patrol,
