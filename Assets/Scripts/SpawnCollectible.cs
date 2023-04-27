@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class SpawnCollectible : MonoBehaviour
 {
 
-    public GameObject collectiblePrefab;
+    /*public GameObject collectiblePrefab;
     public float spawnTime = 5f;
     public float despawnTime = 5f;
 
@@ -22,6 +22,6 @@ public class SpawnCollectible : MonoBehaviour
             Destroy(spawnedCollectible);
             spawnedCollectible = null;
         }
-    }
+    }*/
 
 }
